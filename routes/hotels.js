@@ -1,5 +1,5 @@
 const express = require('express');
-var router = express().Router;
+var router = express.Router();
 
 // router.post('/hotels', (req, res) => {
 //   db.collection('hotels').find().toArray((err, result) => {
@@ -14,8 +14,8 @@ router.post('/hotels',function(req,res){
 	var hotel_id = req.body.hotel_id;
 	var out = {
 		'hotel_name':'',
-		'hotel_address':''
-		'hotel_availability':''
+		'hotel_address':'',
+		'hotel_availability':'',
 		'hotel_rating':''
 	};	
 	db.collection('hotels').findOne({hotel_id: hotel_id}).toArray((err, result) => {

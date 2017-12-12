@@ -1,9 +1,10 @@
 const express = require('express');
-var router = express().Router;
+const bodyParser= require('body-parser');
+var router = express.Router();
 
-app.use(express.static('public'))
-app.use(bodyParser.json())
-app.use(bodyParser.urlencoded({extended: true}));
+router.use(express.static('public'));
+router.use(bodyParser.json());
+router.use(bodyParser.urlencoded({extended: true}));
 
 //check in 
 router.put('/checkout', (req, res) => {
