@@ -19,8 +19,6 @@ MongoClient.connect('mongodb://QHC:vandy2018@ds137336.mlab.com:37336/cloudprojec
 });
 // Set view engine
 app.set('view engine', 'ejs')
-// Get quotes
-
 
 app.get('/', (req, res) => {
   db.collection('hotels').find().toArray((err, result) => {
@@ -51,11 +49,6 @@ app.post('/cities', (req, res) => {
     res.redirect('/')
   });
 });
-
-
-
-
-
 
 
 // Update the database information
