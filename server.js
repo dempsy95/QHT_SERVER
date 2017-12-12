@@ -20,6 +20,7 @@ MongoClient.connect('mongodb://QHC:vandy2018@ds137336.mlab.com:37336/cloudprojec
 // Set view engine
 app.set('view engine', 'ejs')
 
+//Get the information 
 app.get('/', (req, res) => {
   db.collection('hotels').find().toArray((err, result) => {
     if (err) return console.log(err)
@@ -27,10 +28,20 @@ app.get('/', (req, res) => {
     res.render('index.ejs', {hotels: result})
   })
 })
+var hotels = require('./routes/hotels');
+var cities = require('./routes/cities');
+var checkin = require('./routes/checkin');
+var checkout = require('./routes/checkout');
+
+app.use('/', hotels);
+app.use('/', cities);
+app.use('/', checkin);
+app.use('/', checkout);
 
 app.get('/', (req, res) => {
   res.sendFile(__dirname + '/index.html')
 });
+
 // add infomration to database
 app.post('/hotels', (req, res) => {
   db.collection('hotels').save(req.body, (err, result) => {

@@ -25,12 +25,13 @@ router.post('/hotels',function(req,res){
 			res.send(out);
 		}
    	else{
-			out.hotel_name = hotels[hotel_id];
-			out.hotel_address = hotels[hotel_address];
-			out.hotel_availability = hotels[hotel_availability];
-			out.hotel_rating = hotels[hotel_rating];
+			out.hotel_name = result[hotel_id];
+			out.hotel_address = result[hotel_address];
+			out.hotel_availability = result[hotel_availability];
+			out.hotel_rating = result[hotel_rating];
 			res.send(out);
 		}
+	})
 });
 
 module.exports=router;
