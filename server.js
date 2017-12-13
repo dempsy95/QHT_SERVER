@@ -33,10 +33,10 @@ var cities = require('./routes/cities');
 var checkin = require('./routes/checkin');
 var checkout = require('./routes/checkout');
 
-hotels.initialize(app);
-cities.initialize(app);
-checkin.initialize(app);
-checkout.initialize(app);
+app.use('/', hotels);
+app.use('/',cities);
+app.use('/', checkin);
+app.use('/', checkout);
 
 app.get('/', (req, res) => {
   res.sendFile(__dirname + '/index.html')
